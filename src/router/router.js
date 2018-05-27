@@ -13,14 +13,16 @@ export const homeRouter = {
   path: '/home',
   name: 'home',
   component: Main,
-  children:[
-    {
-      //home 界面 路由的 默认 显示界面
-      path: '/',
-      name: 'welcome',
-      component: resolve => require(['@/views/testviews/test1.vue'], resolve)
-    },
-  ]
+  // children:[
+  //   {
+  //     //home 界面 路由的 默认 显示界面
+  //     path: '/',
+  //     name: 'welcome',
+  //     // component: resolve => require(['@/views/testviews/test1.vue'], resolve)
+  //     // component: resolve => require(['@/views/chartsviews/ChartsCabinet.vue'], resolve)
+  //     component: resolve => require(['@/views/layout/Home.vue'], resolve)
+  //   },
+  // ]
 };
 // 作为Main组件的子页面展示并且在左侧菜单显示的路由写在appRouter里
 export const appRouter = [
@@ -55,10 +57,21 @@ export const appRouter = [
       { path: 'test3-2.vue', title: 'test3-2界面2', name: 'test3-2', component: () => import('@/views/testviews/test3-2.vue') }
     ]
   },
+  {
+    path: '/charts',
+    icon: 'lock-combination',
+    title: '图标展示组',
+    name: '4',
+    component: Main,
+    children: [
+      { path: 'chartscabinet', title: '图标展示首页', name: 'chartscabinet', component: () => import('@/views/chartsviews/ChartsCabinet.vue') },
+    ]
+  },
 ];
 // 作为Main组件的子页面展示但是不在左侧菜单显示的路由写在otherRouter里
 export const otherRouter = {
   path: '/',
+  // redirect: '/charts/chartscabinet',
   redirect: '/home',
   component: Main,
   children: []

@@ -11,6 +11,6 @@ export default {
 </script>
 
 <style>
-  @import "./styles/main.less";
-  @import "./styles/common.less";
+  /*@import "./styles/main.less";*/
+  /*@import "./styles/common.less";*/
 </style>
